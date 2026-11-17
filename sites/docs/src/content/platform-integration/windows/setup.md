@@ -58,6 +58,38 @@ and only supported on Windows.
 [vs-update]: https://learn.microsoft.com/en-us/visualstudio/install/update-visual-studio
 [vs-modify]: https://learn.microsoft.com/en-us/visualstudio/install/modify-visual-studio
 
+:::experimental Optional Windows setup automation (PREVIEW)
+To review an alternative to manual installation,
+visit the [personal-fork preview guide][] and its [draft implementation][].
+This optional preview isn't an official Flutter recommendation
+or production-ready setup.
+It targets x64 Windows desktop development, not Android or iOS.
+
+The preview installs Git and Visual Studio Community with the
+**Desktop development with C++** workload, MSVC, CMake, and the Windows SDK.
+It clones the Flutter SDK from the official Git repository's `stable` branch
+if you don't already have an SDK, and reuses existing SDKs without upgrading.
+It doesn't substitute VS Code or standalone Build Tools for Visual Studio.
+Check your [Visual Studio Community license eligibility][] first.
+If you need another edition, follow the manual setup above instead.
+
+Before running anything, review the source, package terms,
+and prerequisites in the guide.
+Use a disposable Windows development VM and elevated PowerShell.
+From the reviewed fork checkout, run:
+
+```powershell
+.\src\Workloads\install-source.ps1 -Workload flutter
+```
+
+End-to-end Windows app builds haven't been validated for this preview.
+Complete the setup checks below even if the script finishes.
+:::
+
+[personal-fork preview guide]: https://github.com/crutkas/WindowsDeveloperConfig-oem/blob/crutkas-devconfig-fork-only-workloads/src/docs/windows-onboarding-preview.md
+[draft implementation]: https://github.com/crutkas/WindowsDeveloperConfig-oem/pull/2
+[Visual Studio Community license eligibility]: https://visualstudio.microsoft.com/vs/community/#usage
+
 ## Validate your setup {: #validate-setup}
 
 1. <h3>Check for toolchain issues</h3>
